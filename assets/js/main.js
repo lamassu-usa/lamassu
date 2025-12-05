@@ -9,12 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const contactForm = document.getElementById("contact-form");
+  const formFeedback = document.getElementById("form-feedback");
+  let feedbackTimeout;
+
   if (contactForm) {
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      alert(
-        "Thank you for your message. For time-sensitive requests, please email info@lamassu-usa.com directly."
-      );
+      if (formFeedback) {
+        formFeedback.textContent =
+          "Message received. For urgent requests, please email info@lamassu-usa.com directly.";
+        formFeedback.classList.add("show");
+
+        clearTimeout(feedbackTimeout);
+        feedbackTimeout = setTimeout(() => {
+          formFeedback.classList.remove("show");
+          formFeedback.textContent = "";
+        }, 5000);
+      }
+
       contactForm.reset();
     });
   }
