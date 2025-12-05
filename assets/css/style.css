@@ -393,21 +393,49 @@ a:hover {
 .clients-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.2rem;
+  gap: 1rem;
   padding: 0;
   margin: 1.5rem 0 0;
   list-style: none;
 }
 
+.clients-list.clients-list-logos {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
 .clients-list li {
-  min-height: 70px;
-  border-radius: 999px;
-  border: 1px dashed rgba(197, 155, 74, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 84px;
+  border-radius: 14px;
+  border: none;
+}
+
+.client-logo-item {
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 0.9rem 0.85rem;
+}
+
+.client-logo {
+  width: 140px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45));
+}
+
+.client-logo-strip {
+  width: 140px;
+  height: 70px;
+}
+
+.client-logo-item-wide {
+  min-height: 120px;
+}
+
+.client-logo-label {
+  font-size: 0.85rem;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  letter-spacing: 0.04em;
 }
 
 .note {
