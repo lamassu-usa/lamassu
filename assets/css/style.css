@@ -180,6 +180,7 @@ a:hover {
 
 .nav-link:hover {
   color: #e5e7eb;
+  text-decoration: none;
 }
 
 .nav-link:hover::after {
@@ -547,7 +548,7 @@ a:hover {
 }
 
 .form-feedback {
-  display: none;
+  display: flex;
   margin-top: 0.9rem;
   padding: 0.85rem 0.95rem;
   border-radius: 12px;
@@ -559,6 +560,12 @@ a:hover {
   font-size: 0.9rem;
   align-items: center;
   gap: 0.6rem;
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity var(--transition-med), max-height var(--transition-med),
+    transform var(--transition-med);
 }
 
 .form-feedback::before {
@@ -569,7 +576,10 @@ a:hover {
 }
 
 .form-feedback.show {
-  display: inline-flex;
+  opacity: 1;
+  max-height: 120px;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* Person cards */
